@@ -1,0 +1,8 @@
+<% def env(a, b); e = ENV["Lynchsda_#{a}"]; e ? e : b; end %>
+
+name:    <%= env :name,    'Lynch Sda School' %>
+email:   <%= env :email,   'admin@sdaschooleux.org'  %>
+about:   <%= env :about,   'School slogan.' %>
+
+# Google Analytics
+ga_id:   <%= env :ga,      ''  %>
