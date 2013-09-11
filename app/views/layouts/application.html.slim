@@ -24,6 +24,8 @@ html lang="en-US"
             ul#connect.clearfix
               - if INFO['email']
                 li.right= link_to 'email', "mailto:#{INFO['email']}", class: 'icon-envelope', id: 'connect-email'
+              - unless logged_in?
+                li.right= link_to 'login', '/auth/faculty'
               li.right= link_to 'rss', rss_path, class: 'open-external icon-rss', id: 'connect-rss'
       - if notice
         #dialog.notice.inner= notice

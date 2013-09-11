@@ -4,7 +4,7 @@ Lynchsda::Application.routes.draw do
   match '/admin', to: 'posts#admin', as: 'admin'
   get 'logout' => 'sessions#destroy', as: 'logout'
 
-  match '/auth/faculty/callback',to: 'sessions#google_auth'
+  match '/auth/faculty/callback',to: 'sessions#google_auth', as: 'google_auth'
 
   get '/posts(.:format)', to: 'posts#index'
   get '/posts.rss', to: 'posts#index', as: 'rss'
