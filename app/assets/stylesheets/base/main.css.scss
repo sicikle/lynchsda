@@ -111,6 +111,14 @@ aside {
   }
 }
 
+#login_details  {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  top: 25px;
+  right: 1em;
+}
+
 .not-logged-in {
   #edit-button {
     display: none;

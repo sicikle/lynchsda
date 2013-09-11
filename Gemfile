@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '~> 3.2'
 
 # Auth/users
-gem 'sorcery', '0.7'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'omniauth-openid'
 gem 'ruby-openid-apps-discovery'
@@ -47,6 +46,9 @@ group :development, :test do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'rb-fsevent', require: false
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :assets do

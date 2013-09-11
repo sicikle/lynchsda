@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   def google_auth
     auth_details = request.env['omniauth.auth']
     session[:email] = auth_details.info['email']
+    session[:name] = auth_details.info['name']
     redirect_to root_path
   end
 end

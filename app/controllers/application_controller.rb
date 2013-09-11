@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :get_user
-  helper_method :no_users?
+  helper_method :logged_in?
 
   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
 
@@ -11,10 +10,6 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, :with => :render_not_found
     rescue_from ActionController::UnknownController, :with => :render_not_found
     rescue_from ActionController::UnknownAction, :with => :render_not_found
-  end
-
-  def no_users?
-    User.all.count == 0
   end
 
   def not_found
@@ -33,9 +28,13 @@ class ApplicationController < ActionController::Base
     render template: 'errors/500', status: 500 unless @not_found
   end
 
-  private
-
-  def get_user
-    @user = current_user || User.new
+  def logged_in?
+    if session[:email].nil?
+      false
+    else
+      true
+    end
   end
+
+
 end
